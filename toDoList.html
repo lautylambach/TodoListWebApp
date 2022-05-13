@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="./style.css">
+    <title>Todo Lista</title>
+</head>
+<body>
+    <h1 class="Titulo">Cosas por Hacer</h1>
+    <div class="all-tareas">
+        <h2 class="titulo-lista-tareas">Mis Listas</h2>
+        <ul class="lista-tarea">
+            <li class="lista-activa">Trabajo</li>
+            <li>Estudios</li>
+            <li>CoderHouse</li> 
+        </ul>
+
+        <form action="">
+            <input 
+            type="text"
+            class="nueva lista"
+            placeholder="nombre nueva lista"
+            aria-label="nombre de nueva lista"
+            >
+            <button class="btn lista" aria-label="crear nuev lista">+</button>
+        </form>
+        
+    </div>
+    <div class="todo-lista">
+        <div class="todo-header">
+            <h2 class="titulo-lista">Youtube</h2>
+            <p class="contador-tareas">3 Tareas</p>
+
+        </div>
+        <div class="todo body">
+            <div class="tareas">
+                <div class="tarea">
+                    <input
+                     type="checkbox" name="" id="tarea-1"/>
+                     <label for="tarea-1">
+                         <span class="checkbox-personalizada"></span>
+                         Grabar video</label>
+                </div><!--tarea1-->
+                <div class="tarea">
+                    <input
+                     type="checkbox" name="" id="tarea-2"/>
+                     <label for="tarea-2">
+                         <span class="checkbox-personalizada"></span>
+                         otra tarea</label>
+                </div><!--tarea 2-->
+                <div class="tarea">
+                    <input
+                     type="checkbox" name="" id="tarea-3"/>
+                     <label for="tarea-3">
+                         <span class="checkbox-personalizada"></span>
+                         otra otra tarea</label>
+                </div><!--tarea 3-->
+            </div>
+            <div class="creadro-tarea-nueva">
+                <form action="">
+                    <input 
+                    type="text"
+                    class="nueva lista"
+                    placeholder="nombre nueva tarea"
+                    aria-label="nombre de nueva tarea"
+                    >
+                    <button class="btn tarea" aria-label="crear nueva tarea">+</button>
+                </form>
+            </div>
+            <div class="eliminar-tareas">
+                <button class="btn delete">Borrar tareas completadas</button>
+                <button class="btn delete">borrar lista</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
