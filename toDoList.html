@@ -7,16 +7,13 @@
     
     <link rel="stylesheet" href="./style.css">
     <script defer src="./script.js"></script>
-    <title>Todo Lista</title>
+    <title>ToDo Lista</title>
 </head>
 <body>
     <h1 class="titulo">Cosas por Hacer</h1>
     <div class="all-tareas">
         <h2 class="titulo-lista-tareas">Mis Listas</h2>
         <ul class="lista-tarea" data-listas>
-            <li class="nombre-lista lista-activa">Trabajo</li>
-            <li class="nombre-lista">Estudios</li>
-            <li class="nombre-lista">CoderHouse</li> 
         </ul>
 
         <form action="" data-nueva-lista-form>
@@ -33,39 +30,19 @@
     </div>
     <div class="todo-lista" data-lista-contenedor>
         <div class="todo-header">
-            <h2 class="titulo-lista" data-titulo-lista>Youtube</h2>
-            <p class="contador-tareas" data-contador-lista>3 Tareas</p>
+            <h2 class="titulo-lista" data-titulo-lista></h2>
+            <p class="contador-tareas" data-contador-lista></p>
 
         </div>
         <div class="todo-body">
             <div class="tareas"data-tareas>
-                <div class="tarea">
-                    <input
-                     type="checkbox" name="" id="tarea-1"/>
-                     <label for="tarea-1">
-                         <span class="checkbox-personalizada"></span>
-                         Grabar video</label>
-                </div><!--tarea1-->
-                <div class="tarea">
-                    <input
-                     type="checkbox" name="" id="tarea-2"/>
-                     <label for="tarea-2">
-                         <span class="checkbox-personalizada"></span>
-                         otra tarea</label>
-                </div><!--tarea 2-->
-                <div class="tarea">
-                    <input
-                     type="checkbox" name="" id="tarea-3"/>
-                     <label for="tarea-3">
-                         <span class="checkbox-personalizada"></span>
-                         otra otra tarea</label>
-                </div><!--tarea 3-->
+                
             </div>
-            <div class="creadro-tarea-nueva">
-                <form action="">
+            <div class="creador-tarea-nueva">
+                <form action="" data-nueva-tarea-form>
                     <input 
                     type="text"
-                    class="nueva tarea"
+                    data-nueva-tarea-input class="nueva tarea"
                     placeholder="nombre nueva tarea"
                     aria-label="nombre de nueva tarea"
                     >
@@ -73,14 +50,22 @@
                 </form>
             </div>
             <div class="eliminar-tareas">
-                <button class="btn delete">Borrar tareas completadas</button>
-                <button class="btn delete" data-borrar-lista-btn>borrar lista</button>
+                <button class="btn delete" data-borrar-tareas-completas>Borrar tareas completadas</button>
+                <button class="btn delete" data-borrar-lista-btn>Borrar lista</button>
             </div>
         </div>
     </div>
 
+    <template id="tarea-template">
+        <div class="tarea">
+            <input
+             type="checkbox" />
+             <label >
+                 <span class="checkbox-personalizada"></span>
+                 </label>
+        </div>
+    </template>
 
-
-    <script src="./script.js"></script>
+    
 </body>
 </html>
