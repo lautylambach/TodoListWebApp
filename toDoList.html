@@ -6,22 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="./style.css">
+    <script defer src="./script.js"></script>
     <title>Todo Lista</title>
 </head>
 <body>
     <h1 class="titulo">Cosas por Hacer</h1>
     <div class="all-tareas">
         <h2 class="titulo-lista-tareas">Mis Listas</h2>
-        <ul class="lista-tarea">
+        <ul class="lista-tarea" data-listas>
             <li class="nombre-lista lista-activa">Trabajo</li>
             <li class="nombre-lista">Estudios</li>
             <li class="nombre-lista">CoderHouse</li> 
         </ul>
 
-        <form action="">
+        <form action="" data-nueva-lista-form>
             <input 
             type="text"
             class="nueva lista"
+            data-nueva-lista-input
             placeholder="nombre nueva lista"
             aria-label="nombre de nueva lista"
             >
@@ -72,7 +74,7 @@
             </div>
             <div class="eliminar-tareas">
                 <button class="btn delete">Borrar tareas completadas</button>
-                <button class="btn delete">borrar lista</button>
+                <button class="btn delete" data-borrar-lista-btn>borrar lista</button>
             </div>
         </div>
     </div>
