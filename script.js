@@ -2,6 +2,10 @@ let contenedorListas = document.querySelector('[data-listas]')
 let nuevaListaForm = document.querySelector('[data-nueva-lista-form]')
 let nuevaListaInput = document.querySelector('[data-nueva-lista-input]')
 let botonBorrarListas = document.querySelector('[data-borrar-lista-btn]') 
+let contenedorListaMostrar = document.querySelector('[data-lista-contenedor]') 
+let tituloLista = document.querySelector('[data-titulo-lista]')
+let contadorLista = document.querySelector('[data-contador-lista]')
+let tareasContenedor = document.querySelector('[data-tareas]')
 
 
 
@@ -36,7 +40,11 @@ botonBorrarListas.addEventListener('click', e =>{
 
 
 function crearLista(nombre){
-   return {id:Date.now().toString(), nombre: nombre, tareas: []}
+   return {id:Date.now().toString(), nombre: nombre, tareas: [{
+       id:1,
+       name:'jsjsjs',
+       completada: false
+   }]}
 }
 
 function guardar(){
@@ -51,6 +59,24 @@ function crearYGuardar(){
 
 function crear(){
     limpiarElementos(contenedorListas)
+    crearListas()
+    let listaSeleccionada = listas.find(lista => lista.id === idListaSelect)
+    if(idListaSelect == null){
+        contenedorListaMostrar.style.display = 'none'
+    }else{
+        contenedorListaMostrar.style.display =''
+        tituloLista.innerText = listaSeleccionada.nombre
+        crearContador(listaSeleccionada)
+    }
+}
+
+function crearContador(listaSeleccionada){
+    let tareasIncompletasContador = listaSeleccionada.tareas.filter(tarea => !tarea.completada).length
+    let tareaString = tareasIncompletasContador ===1 ? "tarea" : "tareas"
+    contadorLista.innerText = `${tareasIncompletasContador} ${tareaString} sin completar `
+}
+
+function crearListas(){
     listas.forEach(lista =>{
         let elementoLista = document.createElement('li')
         elementoLista.dataset.listaId=lista.id
