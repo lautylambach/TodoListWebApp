@@ -9,13 +9,13 @@
     <title>Todo Lista</title>
 </head>
 <body>
-    <h1 class="Titulo">Cosas por Hacer</h1>
+    <h1 class="titulo">Cosas por Hacer</h1>
     <div class="all-tareas">
         <h2 class="titulo-lista-tareas">Mis Listas</h2>
         <ul class="lista-tarea">
-            <li class="lista-activa">Trabajo</li>
-            <li>Estudios</li>
-            <li>CoderHouse</li> 
+            <li class="nombre-lista lista-activa">Trabajo</li>
+            <li class="nombre-lista">Estudios</li>
+            <li class="nombre-lista">CoderHouse</li> 
         </ul>
 
         <form action="">
@@ -25,7 +25,7 @@
             placeholder="nombre nueva lista"
             aria-label="nombre de nueva lista"
             >
-            <button class="btn lista" aria-label="crear nuev lista">+</button>
+            <button class="btn crear" aria-label="crear nuev lista">+</button>
         </form>
         
     </div>
@@ -35,7 +35,7 @@
             <p class="contador-tareas">3 Tareas</p>
 
         </div>
-        <div class="todo body">
+        <div class="todo-body">
             <div class="tareas">
                 <div class="tarea">
                     <input
@@ -63,11 +63,11 @@
                 <form action="">
                     <input 
                     type="text"
-                    class="nueva lista"
+                    class="nueva tarea"
                     placeholder="nombre nueva tarea"
                     aria-label="nombre de nueva tarea"
                     >
-                    <button class="btn tarea" aria-label="crear nueva tarea">+</button>
+                    <button class="btn crear tarea" aria-label="crear nueva tarea">+</button>
                 </form>
             </div>
             <div class="eliminar-tareas">
