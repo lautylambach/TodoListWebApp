@@ -90,12 +90,14 @@ function crearYGuardar(){
 function crear(){
     limpiarElementos(contenedorListas)
     crearListas()
-    let listaSeleccionada = listas.find(lista => lista.id === idListaSelect)
+    let listaSeleccionada = listas.find(lista => lista.id === idListaSelect) ?? console.log('seleccione una lista')  
+    console.log(listaSeleccionada)
     if(idListaSelect == null){
         contenedorListaMostrar.style.display = 'none'
     }else{
         contenedorListaMostrar.style.display =''
-        tituloLista.innerText = listaSeleccionada.nombre
+        tituloLista.innerText = listaSeleccionada.nombre 
+        console.log(listaSeleccionada.nombre)
         crearContador(listaSeleccionada)
         limpiarElementos(tareasContenedor)
         crearTareas(listaSeleccionada)
