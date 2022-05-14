@@ -1,3 +1,12 @@
+class Lista {
+    constructor(id,nombre,tareas){
+        this.id=id
+        this.nombre=nombre
+        this.tareas=tareas
+    }
+    
+}
+
 
 let contenedorListas = document.querySelector('[data-listas]')
 let nuevaListaForm = document.querySelector('[data-nueva-lista-form]')
@@ -74,7 +83,7 @@ function crearTarea(nombre){
 }
 
 function crearLista(nombre){
-   return {id:Date.now().toString(), nombre: nombre, tareas: []}
+   return let = new Lista (Date.now().toString(), nombre,[])
 }
 
 function guardar(){
