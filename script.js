@@ -115,18 +115,24 @@ function crear(){
     limpiarElementos(contenedorListas)
     crearListas()
     crearFecha()
-    let listaSeleccionada = listas.find(lista => lista.id === idListaSelect) ?? console.log('seleccione una lista')  
-    console.log(listaSeleccionada)
-    if(idListaSelect == null){
-        contenedorListaMostrar.style.display = 'none'
+    let listaSeleccionada = listas.find(lista => lista.id === idListaSelect) ?? console.log('seleccione lista para borrar error') 
+    console.clear() 
+    
+    if(listaSeleccionada.nombre !==null || listaSeleccionada.nombre !== undefined || listaSeleccionada.nombre !== '' ){
+        if(idListaSelect == null){
+            contenedorListaMostrar.style.display = 'none'
+        }else{
+            contenedorListaMostrar.style.display =''
+            
+            tituloLista.innerText = listaSeleccionada.nombre 
+            
+            crearContador(listaSeleccionada)
+            limpiarElementos(tareasContenedor)
+            crearTareas(listaSeleccionada)
+        }
+        
     }else{
-        contenedorListaMostrar.style.display =''
-        tituloLista.innerText = listaSeleccionada.nombre 
-        console.clear()
-        console.log(listaSeleccionada.nombre)
-        crearContador(listaSeleccionada)
-        limpiarElementos(tareasContenedor)
-        crearTareas(listaSeleccionada)
+        console.log('seleccione lista')
     }
     
 }
