@@ -33,6 +33,7 @@ let listas = JSON.parse(localStorage.getItem('listasStorages')) || []
 let idListaSelect = localStorage.getItem('SelectListaId')
 
 
+
 contenedorListas.addEventListener('click', e =>{
     if (e.target.tagName.toLowerCase() === 'li'){
        idListaSelect = e.target.dataset.listaId
@@ -116,22 +117,18 @@ function crear(){
     crearListas()
     crearFecha()
     let listaSeleccionada = listas.find(lista => lista.id === idListaSelect) ?? console.log('seleccione lista para borrar error') 
-    console.clear() 
     
-    if(listaSeleccionada.nombre !==null || listaSeleccionada.nombre !== undefined || listaSeleccionada.nombre !== '' ){
         if(idListaSelect == null){
             contenedorListaMostrar.style.display = 'none'
         }else{
             contenedorListaMostrar.style.display =''
-            tituloLista.innerText = listaSeleccionada.nombre //error si no se selecciona una lista
+            tituloLista.innerText = listaSeleccionada.nombre //error si no se selecciona una lista -- se debera aplicar un try finally
             crearContador(listaSeleccionada)
             limpiarElementos(tareasContenedor)
             crearTareas(listaSeleccionada)
         }
         
-    }else{
-        console.log('seleccione lista')
-    }
+    
     
 }
 
