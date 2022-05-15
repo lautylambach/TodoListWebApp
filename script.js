@@ -108,6 +108,7 @@ function guardar(){
 function crearYGuardar(){
    guardar() 
    crear()
+   
 }
 
 function crear(){
@@ -121,6 +122,7 @@ function crear(){
     }else{
         contenedorListaMostrar.style.display =''
         tituloLista.innerText = listaSeleccionada.nombre 
+        console.clear()
         console.log(listaSeleccionada.nombre)
         crearContador(listaSeleccionada)
         limpiarElementos(tareasContenedor)

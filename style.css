@@ -1,8 +1,8 @@
 :root {
-    --clr-primario: #14B5B8;
-    --clr-secundario:#B0FE76;
+    --clr-primario: #B67831;
+    --clr-secundario:#E3A02E;
     --clr-oscuro: #000;
-    --clr-warning: #DB2763;
+    --clr-warning: #E6DC75;
     --clr-light: #EBE8ED;
 }
 *::first-letter{
@@ -19,9 +19,8 @@ body{
     font-family: "Work Sans",sans-serif;
     font-weight: 300;
     font-size: 1.5rem;
-    background-color: var(--clr-primario);
-    color: var(--clr-light);
-
+    background-image:url(./assets/perritoIncendiado.jpg);
+    background-repeat: repeat;
     display:grid;
     grid:
     "header header header header" auto
@@ -61,17 +60,23 @@ body{
     text-align: center;
     font-size: calc(7vw+2rem);
     font-weight: 900;
-    color:#109193;
+    color:var(--clr-light);
     letter-spacing: 2px;
-    margin: -0.1em 0 0.5em
+    margin: 0.1em 0 0.5em;
+    text-shadow: 2px  0px 0px black,
+               0px  2px 0px black,
+              -2px  0px 0px black,
+               0px -2px 0px black;
 }
 .all-tareas{
-    grid-area: list;}
+    grid-area: list;
+    background-color: var(--clr-secundario);}
 .lista-tarea{
     line-height: 1.7;
     font-size: 1.2rem;
     list-style: circle;
     padding-left: 1.1em;
+    background-color: var(--clr-secundario  );
 }
 .nombre-lista{
     cursor: pointer;
@@ -81,6 +86,7 @@ body{
 }
 form{
     display: flex;
+    
 }
 .btn{
     cursor: pointer;
@@ -102,10 +108,11 @@ form{
 .btn.delete{
     opacity: 0.7;
     font-size: 1rem;
-    transition: colore 200ms;
+    transition: color 200ms;
+    color: var(--clr-oscuro);
 }
 .btn.delete:hover{
-   color: var(--clr-warning);
+   color: var(--clr-primario);
 }
 .nueva{
     background: transparent ;
@@ -158,6 +165,7 @@ form{
 .titulo-lista{
     margin: 0 1rem 0 0;
     margin-right: 1em;
+
 }
 .contador-tareas{
     margin: 0;
@@ -246,6 +254,10 @@ form{
      bottom: -35px;
      color:var(--clr-light)
 
+ }
+ .titulo-lista-tareas{
+     background-color: var(--clr-secundario);
+     
  }
  
 
