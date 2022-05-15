@@ -1,9 +1,12 @@
 :root {
-    --clr-primario: #519e8a;
-    --clr-secundario:#c5c9a4;
-    --clr-oscuro: #476a6f;
-    --clr-warning: #ecbeb4;
-    --clr-light: #c6dec6;
+    --clr-primario: #14B5B8;
+    --clr-secundario:#B0FE76;
+    --clr-oscuro: #000;
+    --clr-warning: #DB2763;
+    --clr-light: #EBE8ED;
+}
+*::first-letter{
+    text-transform: capitalize;
 }
 *,
 *::before,
@@ -25,12 +28,40 @@ body{
     "...... list   active ......" auto/
     1fr minmax(100px, 300px)minmax(250px, 500px) 1fr
 }
+.fecha{
+  display: flex;  
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacer);
+  background-color: var(--clr-secundario);
+}
+.fecha-izq{
+    display: flex;
+    align-items: center;
+}
+#fechaNumero{
+    font-size: 3.0rem;
+}
+#fechaTexto{
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+#fechaMes,
+#fehcaNumero,
+#fechaTexto{
+    font-weight: bold;
+}
+#fechaMes,
+#fechaTexto{
+    margin-left: 7px;
+    font-size: 1.2rem;
+}
 .titulo{
     grid-area: header;
     text-align: center;
     font-size: calc(7vw+2rem);
     font-weight: 900;
-    color:#367564;
+    color:#109193;
     letter-spacing: 2px;
     margin: -0.1em 0 0.5em
 }
@@ -109,7 +140,7 @@ form{
     letter-spacing: 1px;
 }
 .todo-lista{
-    --spacer:3rem;
+    --spacer:2rem;
 
     grid-area: active;
     background: var(--clr-light);
@@ -160,7 +191,7 @@ form{
     left: 0;
     bottom:-0.5em;
     height: 1px;
-    background: currentColor;
+    background: var(--clr-light);
     opacity: 0.1;
 }
 .checkbox-personalizada{

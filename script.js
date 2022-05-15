@@ -7,6 +7,10 @@ class Lista {
     
 }
 
+let fechaNumero = document.getElementById('fechaNumero')
+let fechaMes= document.getElementById('fechaMes')
+let fechaAnno= document.getElementById('fechaAnno')
+let fechaTexto= document.getElementById('fechaTexto')
 
 let contenedorListas = document.querySelector('[data-listas]')
 let nuevaListaForm = document.querySelector('[data-nueva-lista-form]')
@@ -63,6 +67,7 @@ nuevaTareaForm.addEventListener('submit', e => {
     let tarea = crearTarea(nombreTarea)
     let listaSeleccionada = listas.find(lista => lista.id === idListaSelect)
     listaSeleccionada.tareas.push(tarea)
+    nuevaTareaInput.value = null
     crearYGuardar()
  })
 
@@ -77,6 +82,15 @@ botonBorrarListas.addEventListener('click', e =>{
     idListaSelect = null
     crearYGuardar()
 })
+
+let crearFecha = () => {
+    let fecha = new Date()
+    fechaNumero.textContent = fecha.toLocaleString('es', {day:'numeric'})
+    fechaTexto.textContent = fecha.toLocaleString('es', {weekday:'long'})
+    fechaMes.textContent = fecha.toLocaleString('es', {month:'short'})
+    fechaAnno.textContent = fecha.toLocaleString('es', {year:'numeric'})
+
+}
 
 function crearTarea(nombre){
     return {id:Date.now().toString(), nombre: nombre, completada: false}
@@ -99,6 +113,7 @@ function crearYGuardar(){
 function crear(){
     limpiarElementos(contenedorListas)
     crearListas()
+    crearFecha()
     let listaSeleccionada = listas.find(lista => lista.id === idListaSelect) ?? console.log('seleccione una lista')  
     console.log(listaSeleccionada)
     if(idListaSelect == null){
@@ -111,6 +126,7 @@ function crear(){
         limpiarElementos(tareasContenedor)
         crearTareas(listaSeleccionada)
     }
+    
 }
 
 function crearTareas(listaSeleccionada){
