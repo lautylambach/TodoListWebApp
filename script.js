@@ -116,16 +116,21 @@ function crear(){
     limpiarElementos(contenedorListas)
     crearListas()
     crearFecha()
-    let listaSeleccionada = listas.find(lista => lista.id === idListaSelect) ?? console.log('seleccione lista para borrar error') 
+    let listaSeleccionada = listas.find(lista => lista.id === idListaSelect) ?? console.log('seleccione lista ') 
     
         if(idListaSelect == null){
             contenedorListaMostrar.style.display = 'none'
         }else{
+            try{
             contenedorListaMostrar.style.display =''
             tituloLista.innerText = listaSeleccionada.nombre //error si no se selecciona una lista -- se debera aplicar un try finally
             crearContador(listaSeleccionada)
             limpiarElementos(tareasContenedor)
             crearTareas(listaSeleccionada)
+            }catch{
+                tituloLista.innerText = 'Seleccione una lista'
+            }
+            
         }
         
     
