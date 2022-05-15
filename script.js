@@ -123,9 +123,7 @@ function crear(){
             contenedorListaMostrar.style.display = 'none'
         }else{
             contenedorListaMostrar.style.display =''
-            
-            tituloLista.innerText = listaSeleccionada.nombre 
-            
+            tituloLista.innerText = listaSeleccionada.nombre //error si no se selecciona una lista
             crearContador(listaSeleccionada)
             limpiarElementos(tareasContenedor)
             crearTareas(listaSeleccionada)
