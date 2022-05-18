@@ -60,6 +60,16 @@ nuevaListaForm.addEventListener('submit', e => {
    nuevaListaInput.value = null
    listas.push(lista)
    crearYGuardar()
+   Toastify({
+    text: `Se creo la lista ${lista.nombre}`,
+    duration: 3000,
+    gravity: "top", // `top` or `bottom`
+    position: "right", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+      background: "linear-gradient(to right, #E3A02E, #E6DC75)"},
+    }).showToast();
+   
 })
 //input nombre tarea
 nuevaTareaForm.addEventListener('submit', e => {
@@ -71,18 +81,48 @@ nuevaTareaForm.addEventListener('submit', e => {
     listaSeleccionada.tareas.push(tarea)
     nuevaTareaInput.value = null
     crearYGuardar()
+    Toastify({
+        text: `Se creo nueva tarea en lista ${listaSeleccionada.nombre}`,
+        duration: 3000,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #E3A02E, #E6DC75)"},
+        }).showToast();
  })
-// boton borrar tareas ompletas
+// boton borrar tareas completas
 botonBorrarTareas.addEventListener('click', e => {
     let listaSeleccionada = listas.find(lista =>lista.id === idListaSelect)
     listaSeleccionada.tareas = listaSeleccionada.tareas.filter(tarea => !tarea.completada)
     crearYGuardar()
+    Toastify({
+        text: `Se borraron las tareas completadas de la lista ${listaSeleccionada.nombre}`,
+        duration: 3000,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #E3A02E, #E6DC75)"},
+        }).showToast();
 })
 //boton borrar listas
 botonBorrarListas.addEventListener('click', e =>{
+    let listaSeleccionada = listas.find(lista =>lista.id === idListaSelect)
+    Toastify({
+        text: `Se borro la lista ${listaSeleccionada.nombre}`,
+        duration: 3000,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #E3A02E, #E6DC75)"},
+        }).showToast();
+    
     listas = listas.filter(lista => lista.id !== idListaSelect )
     idListaSelect = null
     crearYGuardar()
+    
 })
 
 //funciones
