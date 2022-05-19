@@ -207,7 +207,11 @@ function crear(){
     if(idListaSelect == null){
         contenedorListaMostrar.style.display = 'none'
     }else{
-        try{
+        tareaTryCatch(listaSeleccionada)
+        }
+}
+function tareaTryCatch(listaSeleccionada){
+      try{
             contenedorListaMostrar.style.display =''
             tituloLista.innerText = listaSeleccionada.nombre //error si no se selecciona una lista -- se debera aplicar un try finally
             crearContador(listaSeleccionada)
@@ -217,7 +221,6 @@ function crear(){
             tituloLista.innerText = 'Seleccione una lista'
             } 
         }
-}
 
 //se llama la funcion inicial
 crear()
