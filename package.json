@@ -1,0 +1,23 @@
+{
+  "name": "todolistwebapp",
+  "version": "1.0.0",
+  "description": "Apicacion web ToDo list con css, html5 y Javascript",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lautylambach/TodoListWebApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lautylambach/TodoListWebApp/issues"
+  },
+  "homepage": "https://github.com/lautylambach/TodoListWebApp#readme",
+  "dependencies": {
+    "react-toastify": "^9.0.1"
+  }
+}
