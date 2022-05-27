@@ -23,9 +23,9 @@ body{
     display:grid;
     grid:
     "header header header header" auto
-    "...... list   active ......" auto
-    "......  clima  clima  ......"/
-   1fr 40vw 40vw 1fr
+    "...... list   active clima" auto
+    "...... .....  ...... clima"/
+   1fr 25vw 35vw 30vw
 }
 .fecha{
   display: flex;  
@@ -265,18 +265,17 @@ form{
     grid-area: clima;
     text-align: center;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     grid-gap: 10px;
-    margin: 2em;
+    margin-left: 1rem;
 }
 
 #caja1, #caja2, #caja3 {
     display: inline-block;
     text-align: center;
     vertical-align: middle;
-    padding-top: 20%;
     width: 250px;
-    height: 500px;
+    height: 250px;
 }
 
 #caja1 {
