@@ -1,3 +1,5 @@
+
+// app tareas
 class Lista {
     constructor(id,nombre,tareas){
         this.id=id
@@ -67,7 +69,7 @@ nuevaListaForm.addEventListener('submit', e => {
     position: "right", // `left`, `center` or `right`
     stopOnFocus: true, // Prevents dismissing of toast on hover
     style: {
-      background: "linear-gradient(to right, #E3A02E, #E6DC75)"},
+        background: "linear-gradient(to right, #E1DCCE, #DDD0B9)"},
     }).showToast();
    
 })
@@ -88,7 +90,7 @@ nuevaTareaForm.addEventListener('submit', e => {
         position: "right", // `left`, `center` or `right`
         stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
-          background: "linear-gradient(to right, #E3A02E, #E6DC75)"},
+          background: "linear-gradient(to right, #E1DCCE, #DDD0B9)"},
         }).showToast();
  })
 // boton borrar tareas completas
@@ -103,7 +105,7 @@ botonBorrarTareas.addEventListener('click', e => {
         position: "right", // `left`, `center` or `right`
         stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
-          background: "linear-gradient(to right, #E3A02E, #E6DC75)"},
+            background: "linear-gradient(to right, #E1DCCE, #DDD0B9)"},
         }).showToast();
 })
 //boton borrar listas
@@ -116,7 +118,7 @@ botonBorrarListas.addEventListener('click', e =>{
         position: "right", // `left`, `center` or `right`
         stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
-          background: "linear-gradient(to right, #E3A02E, #E6DC75)"},
+            background: "linear-gradient(to right, #E1DCCE, #DDD0B9)"},
         }).showToast();
     
     listas = listas.filter(lista => lista.id !== idListaSelect )
@@ -224,3 +226,82 @@ function tareaTryCatch(listaSeleccionada){
 
 //se llama la funcion inicial
 crear()
+
+//app clima
+
+// variables para clima
+let lon
+let lat
+let apiKey = '15d633172c67b99e7578200d5feb4e1e'
+// variables para el dom
+let temperaturaValor = document.getElementById('temperatura-valor')  
+let temperaturaDescripcion = document.getElementById('temperatura-descripcion')  
+let ubicacion = document.getElementById('ubicacion')  
+let iconoAnimado = document.getElementById('icono-animado') 
+let vientoVelocidad = document.getElementById('viento-velocidad') 
+
+//evento que llamara a la api
+window.addEventListener('load', ()=> {
+    if(navigator.geolocation){
+       navigator.geolocation.getCurrentPosition( posicion => {
+           //console.log(posicion.coords.latitude)
+           lon = posicion.coords.longitude
+           lat = posicion.coords.latitude
+            //ubicación actual    
+           let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&lang=es&units=metric`
+           console.log(url)
+        
+            apiClima(url)
+       })   
+    }
+})
+//funcion que llama a la API
+function apiClima(url){
+    fetch(url)
+    .then( response => { return response.json()})
+    .then( data => {
+        temperatura(data)
+        animacionClima(data)
+              
+    })
+    .catch( error => {
+        console.log(error)
+    })
+}
+//funcion que genera los valores para el DOM
+function temperatura(data){
+    let temp = Math.round(data.main.temp)
+    let desc = data.weather[0].description
+    temperaturaValor.textContent = `${temp} ° C`
+    temperaturaDescripcion.textContent = desc.toUpperCase()
+    ubicacion.textContent = data.name           
+    vientoVelocidad.textContent = `${data.wind.speed} m/s`   
+}
+//funcion para el icono animado del DOM
+function animacionClima(data){
+    switch (data.weather[0].main) {
+        case 'Thunderstorm':
+            iconoAnimado.src='./assets/animated/thunder.svg'  
+        break;
+        case 'Drizzle':
+            iconoAnimado.src='./assets/animated/rainy-2.svg'  
+        break;
+        case 'Rain':
+            iconoAnimado.src='./assets/animated/rainy-7.svg'  
+        break;
+        case 'Snow':
+            iconoAnimado.src='animated/snowy-6.svg'   
+        break;                        
+        case 'Clear':
+            iconoAnimado.src='./assets/animated/day.svg'    
+        break;
+        case 'Atmosphere':
+            iconoAnimado.src='./assets/animated/weather.svg'   
+        break;  
+        case 'Clouds':
+            iconoAnimado.src='./assets/animated/cloudy-day-1.svg'  
+        break;  
+        default:
+            iconoAnimado.src='./assets/animated/cloudy-day-1.svg'    
+    }
+}
